@@ -1,20 +1,28 @@
 
 
-interface SignUpParams {
+type SignUpParams = {
   uid?: string;
   name: string;
   email: string;
   password: string;
 }
 
-interface SignInParams {
+type SignInParams = {
   email: string;
   password: string;
 }
 
 
-interface User {
+type User = {
   name: string;
   email: string;
   id: string;
 }
+
+
+type SelectOption  = {
+   label: string;
+   value: string;
+   disabled?: boolean;
+   icon?: React.ReactNode; // Optional icon for the option
+};

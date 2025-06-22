@@ -8,9 +8,9 @@ const AppLayout = ({children} : {children: ReactNode}) => {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main className='w-full flex flex-col'>
+      <main className='w-full flex flex-col bg-neutral-50'>
          <Topbar />
-         <div className='w-full p-10'>
+         <div className='w-full p-10' >
           {children}
          </div>
       </main>
