@@ -1,5 +1,5 @@
 export const ROUTES = {
-   HOME: '/',
+   DASHBOARD: '/dashboard',
    SIGNUP: '/sign-up',
    SIGNIN: '/sign-in',
    FEEDBACK: (id:string) => `/interview/${id}/feedback`,

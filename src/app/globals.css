@@ -4,6 +4,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+
+   --color-secondary-100: #02254D;
+   --color-secondary-foreground-100: #ffffff;
    --color-primary-100: #dddfff;
   --color-primary-200: #cac5fe;
 
@@ -151,10 +154,33 @@
 
   .btn {
       @apply !w-full !bg-primary-200 !text-dark-100 hover:!bg-primary-200/80 !rounded-full !min-h-10 !font-bold !px-5 cursor-pointer;
-    }
-  
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .card-button {
+    @apply bg-white border border-gray-200 rounded-lg p-5 flex flex-col gap-2 cursor-pointer items-start
+  }
+
 }
 
 @utility border-gradient {
   @apply bg-gradient-to-b from-[#4B4D4F] to-[#4B4D4F33];
+}
+
+@utility grad-primary {
+  @apply bg-gradient-to-b from-blue-100 via-blue-50 to-white
+}
+
+@utility hero-background {
+  @apply bg-[url('/ai-hero.jpg')] bg-cover bg-center bg-no-repeat;
+}
+
+@utility text-shadow_white {
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.8), 0 0 4px rgba(255, 255, 255, 0.6), 0 0 6px rgba(255, 255, 255, 0.4);
+}
+@utility text-shadow_dark {
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.8), 0 0 4px rgba(0, 0, 0, 0.6), 0 0 6px rgba(0, 0, 0, 0.4);
 }

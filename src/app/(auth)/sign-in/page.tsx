@@ -5,10 +5,13 @@ import FormField from "@/components/controls/inputs/FormField";
 
 import { ROUTES } from "@/data/constants/routes";
 import { AuthFormSchema, authFormSchema } from "@/data/schema/authSchema";
+import { signIn } from "@/hooks/actions/auth.action";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 const MessagePartialComponent = () => (
    <>
@@ -22,6 +25,8 @@ const MessagePartialComponent = () => (
 
 
 const SignInPage = () => {
+
+   const router= useRouter();
    const formSchema = authFormSchema("sign-in");
    const form = useForm<AuthFormSchema>({
       resolver: zodResolver(formSchema),
@@ -31,9 +36,21 @@ const SignInPage = () => {
       },
    });
 
-   const handleSubmit = (values: AuthFormSchema) => {
-      console.log("Form submitted with values:", values);
-      // Handle sign-in logic here, e.g., API call
+   const handleSubmit = async (values: AuthFormSchema) => {
+      try {
+         const { email, password } = values;
+         const results = await signIn({ email, password });
+         if(!results.success) {
+            throw new Error(results.message);
+         }
+
+         toast.success("Sign-in successful!");
+         router.push(ROUTES.DASHBOARD);
+      }
+      catch (error: any) {
+          toast.error(error.message);
+         console.error(error);
+      }
    };
 
    return (
