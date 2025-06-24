@@ -1,6 +1,7 @@
 import React from "react";
 
 interface DataTableProps {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     data: Array<Record<string, any>>;
     columns: Array<{ header: string; accessor: string }>;
 }
