@@ -5,6 +5,11 @@ interface APIResponse<T> {
   data: T;
 }
 
+interface ErrorResponse  {
+  success: boolean;
+  error: string;
+}
+
 
 
 type SignUpParams = {
@@ -27,9 +32,21 @@ type User = {
 }
 
 
-type SelectOption  = {
-   label: string;
-   value: string;
-   disabled?: boolean;
-   icon?: LucideIcon; // Optional icon for the option
+type SelectOption = {
+  label: string;
+  value: string;
+  disabled?: boolean;
+  icon?: LucideIcon; // Optional icon for the option
+};
+
+type InterviewQuestions = {
+  position: string;
+  description: string;
+  duration: number;
+  interviewType: string;
+  experience: string;
+  questions: string[];
+  finalized: boolean;
+  userId: string;
+  createAt: string;
 };

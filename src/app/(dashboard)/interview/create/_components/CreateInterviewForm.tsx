@@ -10,10 +10,13 @@ import {
    InterviewSchema,
    interviewSchema,
 } from "@/data/schema/interviewSchema";
+import { ErrorResponse } from "@/data/types";
+import { generateInterview } from "@/hooks/actions/interviews/generate.action";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import React from "react";
 import {  useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 const CreateInterviewForm = () => {
    const router = useRouter();
@@ -30,9 +33,22 @@ const CreateInterviewForm = () => {
       },
    });
 
-   const handleSubmit = (data: InterviewSchema) => {
-      console.log("Form submitted with data:", data);
-      router.push(`/interview/create?step=2`)
+   const handleSubmit = async (data: InterviewSchema) => {
+      
+      try {
+         
+         const response = await generateInterview(data);
+         console.log("Form submitted with data:", response);
+         router.push(`/interview/create?step=2`);
+
+      } 
+      catch (error) {
+         const err: ErrorResponse = error as ErrorResponse;
+         toast.error(`Error: ${err.error || "Failed to generate interview questions"}`);
+         console.error("Error submitting form:", err);
+         // Optionally, set form error state here
+      }
+      
    };
    return (
       <Form {...form}>

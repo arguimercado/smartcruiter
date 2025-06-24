@@ -1,4 +1,4 @@
-import { APIResponse } from "@/data/types";
+import { APIResponse, InterviewQuestions } from "@/data/types";
 import { db } from "@/lib/firebase/admin";
 import { GoogleGenAI } from "@google/genai"
 
@@ -30,7 +30,9 @@ export async function  POST(request: Request) {
                   Thank you! <3`
       });
 
-      const interviewQuestions = {
+     
+
+      const interviewQuestions: InterviewQuestions = {
          position,
          description,
          duration,
@@ -40,12 +42,11 @@ export async function  POST(request: Request) {
          finalized: true,
          userId: userid,
          createAt: new Date().toISOString(),
-         
-      }
+      };
 
       await db.collection("interviews").add(interviewQuestions);
 
-       return Response.json({ success: true, data: interviewQuestions } as APIResponse<typeof interviewQuestions>, { status: 200 });
+       return Response.json({ success: true, data: interviewQuestions } as APIResponse<InterviewQuestions>, { status: 200 });
    }
    catch (error) {
       
