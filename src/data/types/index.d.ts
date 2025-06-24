@@ -40,6 +40,7 @@ type SelectOption = {
 };
 
 type InterviewQuestions = {
+  id:string;
   position: string;
   description: string;
   duration: number;

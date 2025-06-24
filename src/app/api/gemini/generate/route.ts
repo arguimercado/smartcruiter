@@ -32,7 +32,7 @@ export async function  POST(request: Request) {
 
      
 
-      const interviewQuestions: InterviewQuestions = {
+      const interviewQuestions: Omit<InterviewQuestions,"id"> = {
          position,
          description,
          duration,
@@ -44,9 +44,13 @@ export async function  POST(request: Request) {
          createAt: new Date().toISOString(),
       };
 
-      await db.collection("interviews").add(interviewQuestions);
+      // Save the interview questions to the database and get the document ID
+      const response = await db.collection("interviews").add(interviewQuestions);
+      
+      // Optionally, you can return the document ID or any other relevant information
+      const interviewId = response.id;;
 
-       return Response.json({ success: true, data: interviewQuestions } as APIResponse<InterviewQuestions>, { status: 200 });
+       return Response.json({ success: true, data: {id: interviewId} } as APIResponse<Pick<InterviewQuestions,"id">>, { status: 200 });
    }
    catch (error) {
       

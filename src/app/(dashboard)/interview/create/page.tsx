@@ -3,11 +3,13 @@ import React from "react";
 import CreateInterviewForm from "./_components/CreateInterviewForm";
 import BackButton from "@/components/controls/commons/BackButton";
 import StepWizard from "./_components/StepWizard";
+import ViewQuestions from "./_components/ViewQuestions";
+import FinalReviewComponent from "./_components/FinalReviewComponent";
 
-const CreateInterviewPage = async ({searchParams} : {searchParams: Promise<{step: string | undefined}>}) => {
+const CreateInterviewPage = async ({searchParams} : {searchParams: Promise<{step: string | undefined, interviewId?: string}>}) => {
    
    
-   const {step} = await searchParams;
+   const {step,interviewId} = await searchParams;
    
    const steps = ["Criteria", "Questions", "Review"];
    const currentStep = step ? parseInt(step as string, 10) : 1;
@@ -25,9 +27,10 @@ const CreateInterviewPage = async ({searchParams} : {searchParams: Promise<{step
                <CreateInterviewForm />
             )}
             {currentStep === 2 && (
-               <div className="text-center">
-                  <h3 className="text-xl font-semibold mb-4">Generate Questions</h3>
-               </div>
+               <ViewQuestions interviewId={interviewId} />
+            )}
+            {currentStep === 3 && (
+               <FinalReviewComponent />
             )}
          </Card>
       </div>

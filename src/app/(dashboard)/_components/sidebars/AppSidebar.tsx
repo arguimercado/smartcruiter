@@ -1,5 +1,4 @@
 import React from "react";
-import { HomeIcon, Settings2Icon, Calendar1Icon, Users2Icon } from "lucide-react";
 import Link from "next/link";
 import {
    Sidebar,
@@ -11,29 +10,7 @@ import {
    SidebarMenuItem,
 } from "@/components/ui/sidebar"; // Adjust import path as needed
 import { Button } from "@/components/ui/button";
-
-const menuData = [
-   {
-      label: "Dashboard",
-      icon: HomeIcon,
-      href: "/",
-   },
-   {
-      label: "Schedule Interviews",
-      icon: Calendar1Icon,
-      href: "/interviews",
-   },
-   {
-      label: "Candidates",
-      icon: Users2Icon,
-      href: "/candidates",
-   },
-   {
-      label: "Settings",
-      icon: Settings2Icon,
-      href: "/settings",
-   }
-];
+import { menuData } from "@/data/items/sidemenu";
 
 const AppSidebar: React.FC = () => {
    return (

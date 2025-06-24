@@ -3,8 +3,10 @@ import { Card } from "@/components/ui/card";
 import { ROUTES } from "@/data/constants/routes";
 import { PhoneCall, VideoIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
+import PreviousInterviewGrid from "./_components/PreviousInterviewGrid";
 
 const DashboardPage = () => {
+
   const router = useRouter();
 
   const handleCreateInterview = () => {
@@ -30,8 +32,12 @@ const DashboardPage = () => {
             Schedule phone screening calls with candidates to assess their fit.
           </p>
         </Card>
-
-
+      </div>
+      <div className="w-full mt-8 flex-col text-neutral-400">
+        <h1 className="text-2xl font-bold pb-2 border-b border-gray-200">Previous Created Interview</h1>
+        <Card className="mt-4 card-border">
+          <PreviousInterviewGrid />
+        </Card>
       </div>
     </>
   )

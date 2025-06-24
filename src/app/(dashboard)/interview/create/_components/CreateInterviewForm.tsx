@@ -36,10 +36,9 @@ const CreateInterviewForm = () => {
    const handleSubmit = async (data: InterviewSchema) => {
       
       try {
-         
          const response = await generateInterview(data);
          console.log("Form submitted with data:", response);
-         router.push(`/interview/create?step=2`);
+         router.push(`/interview/create?step=2&interviewId=${response.data.id}`);
 
       } 
       catch (error) {
@@ -93,7 +92,10 @@ const CreateInterviewForm = () => {
                />
             </div>
             <div>
-               <Button type="submit">Generate Question</Button>
+               <Button 
+                  type="submit"
+                  disabled={!form.formState.isValid || form.formState.isSubmitting}
+               >Generate Question</Button>
             </div>
          </form>
       </Form>

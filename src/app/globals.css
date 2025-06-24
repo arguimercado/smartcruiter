@@ -149,7 +149,7 @@
   }
 
   .card-border {
-    @apply border border-sky-100 rounded-lg
+    @apply border border-sky-100 !rounded-sm
   }
 
   .btn {
@@ -161,7 +161,7 @@
   }
 
   .card-button {
-    @apply bg-white border border-gray-200 rounded-lg p-5 flex flex-col gap-2 cursor-pointer items-start
+    @apply bg-white border border-gray-200 rounded-sm p-5 flex flex-col gap-2 cursor-pointer items-start
   }
 
 }
