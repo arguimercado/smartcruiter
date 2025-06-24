@@ -4,13 +4,13 @@ import CreateInterviewForm from "./_components/CreateInterviewForm";
 import BackButton from "@/components/controls/commons/BackButton";
 import StepWizard from "./_components/StepWizard";
 
-const CreateInterviewPage = async ({searchParams} : {searchParams: {[key:string]: string | undefined}}) => {
+const CreateInterviewPage = async ({searchParams} : {searchParams: Promise<{step: string | undefined}>}) => {
    
    
-   const urlStep = await searchParams.step;
+   const {step} = await searchParams;
    
    const steps = ["Criteria", "Questions", "Review"];
-   const currentStep = urlStep ? parseInt(urlStep as string, 10) : 1;
+   const currentStep = step ? parseInt(step as string, 10) : 1;
 
    return (
       <div className="flex flex-col items-start p-4 max-w-5xl m-auto">
