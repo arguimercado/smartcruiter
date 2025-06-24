@@ -1,5 +1,5 @@
 import React from "react";
-import { HomeIcon, User2Icon, Settings2Icon, Calendar1Icon, Users2Icon } from "lucide-react";
+import { HomeIcon, Settings2Icon, Calendar1Icon, Users2Icon } from "lucide-react";
 import Link from "next/link";
 import {
    Sidebar,

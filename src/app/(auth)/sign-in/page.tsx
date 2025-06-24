@@ -47,7 +47,8 @@ const SignInPage = () => {
          toast.success("Sign-in successful!");
          router.push(ROUTES.DASHBOARD);
       }
-      catch (error: any) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      catch (error:any) {
           toast.error(error.message);
          console.error(error);
       }
