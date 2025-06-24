@@ -1,4 +1,6 @@
 import { BriefcaseBusiness, CodeXmlIcon, ComponentIcon, PuzzleIcon, UserRound } from "lucide-react"
+import { SelectOption } from "../types"
+
 
 
 export const onBoardMenu = [
@@ -30,7 +32,7 @@ export const durationOptions  = [
    { value: "90", label: "1 hour 30 minutes" },
 ]
 
-export const interviewTypeOptions = [
+export const interviewTypeOptions : SelectOption[] = [
    { value: "Technical", label: "Technical", icon: CodeXmlIcon },
    { value: "Behavioural", label: "Behavioural", icon: UserRound },
    {value: "Experience", label: "Experience", icon: BriefcaseBusiness },

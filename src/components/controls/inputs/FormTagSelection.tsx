@@ -1,8 +1,9 @@
 import React from "react";
 import { Control, FieldValues, Controller, Path } from "react-hook-form";
 import { Badge } from "@/components/ui/badge";
-import { SelectOption } from "./FormSelectField";
+
 import { FormControl, FormItem, FormLabel } from "@/components/ui/form";
+import { SelectOption } from "@/data/types";
 
 interface FormTagSelectionProps<T extends FieldValues> {
    name: Path<T>;

@@ -1,3 +1,4 @@
+import { LucideIcon } from "lucide-react";
 
 interface APIResponse<T> {
   success: boolean;
@@ -30,5 +31,5 @@ type SelectOption  = {
    label: string;
    value: string;
    disabled?: boolean;
-   icon?: React.ReactNode; // Optional icon for the option
+   icon?: LucideIcon; // Optional icon for the option
 };

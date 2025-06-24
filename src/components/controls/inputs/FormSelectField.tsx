@@ -1,5 +1,6 @@
 import { FormControl, FormDescription, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { SelectOption } from "@/data/types";
 import React from "react";
 import { Control, Controller, FieldValues, Path } from "react-hook-form";
 

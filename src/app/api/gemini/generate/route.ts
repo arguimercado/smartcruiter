@@ -1,3 +1,4 @@
+import { APIResponse } from "@/data/types";
 import { db } from "@/lib/firebase/admin";
 import { GoogleGenAI } from "@google/genai"
 

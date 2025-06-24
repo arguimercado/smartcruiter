@@ -5,6 +5,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "fire
 import { auth as clientAuth } from "../../lib/firebase/client"
 import { auth as serverAuth, db } from "../../lib/firebase/admin";
 import { cookies } from "next/headers";
+import { SignInParams, SignUpParams, User } from "@/data/types";
 
 
 const ONE_WEEK = 60 * 60 * 24 * 7 * 1000;
