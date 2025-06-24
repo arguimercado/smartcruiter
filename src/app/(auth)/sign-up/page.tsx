@@ -1,4 +1,5 @@
 
+"use client";
 import FormField from "@/components/controls/inputs/FormField";
 import { ROUTES } from "@/data/constants/routes";
 import { AuthFormSchema, authFormSchema } from "@/data/schema/authSchema";
