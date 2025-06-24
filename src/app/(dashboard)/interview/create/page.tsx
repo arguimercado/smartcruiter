@@ -10,10 +10,10 @@ const CreateInterviewPage = async ({searchParams} : {searchParams: {[key:string]
    const urlStep = await searchParams.step;
    
    const steps = ["Criteria", "Questions", "Review"];
-   const currentStep = urlStep ? parseInt(urlStep as string, 10) : 0;
+   const currentStep = urlStep ? parseInt(urlStep as string, 10) : 1;
 
    return (
-      <div className="flex flex-col items-start p-4 max-w-3xl m-auto">
+      <div className="flex flex-col items-start p-4 max-w-5xl m-auto">
          <BackButton className="mb-4">
             <h2 className="text-2xl font-bold item">
                Create Interview Criteria
@@ -21,7 +21,14 @@ const CreateInterviewPage = async ({searchParams} : {searchParams: {[key:string]
          </BackButton>
          <StepWizard steps={steps} currentStep={currentStep === 0 ? 0 : currentStep - 1} />
          <Card className="w-full p-6">
-            <CreateInterviewForm />
+            {currentStep === 1 && (
+               <CreateInterviewForm />
+            )}
+            {currentStep === 2 && (
+               <div className="text-center">
+                  <h3 className="text-xl font-semibold mb-4">Generate Questions</h3>
+               </div>
+            )}
          </Card>
       </div>
    );

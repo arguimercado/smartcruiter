@@ -11,11 +11,12 @@ import {
    interviewSchema,
 } from "@/data/schema/interviewSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import React from "react";
 import {  useForm } from "react-hook-form";
 
 const CreateInterviewForm = () => {
-
+   const router = useRouter();
    const form = useForm<InterviewSchema>({
       resolver: zodResolver(interviewSchema),
       defaultValues: {
@@ -31,6 +32,7 @@ const CreateInterviewForm = () => {
 
    const handleSubmit = (data: InterviewSchema) => {
       console.log("Form submitted with data:", data);
+      router.push(`/interview/create?step=2`)
    };
    return (
       <Form {...form}>

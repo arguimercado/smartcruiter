@@ -1,4 +1,10 @@
 
+interface APIResponse<T> {
+  success: boolean;
+  data: T;
+}
+
+
 
 type SignUpParams = {
   uid?: string;

@@ -32,7 +32,7 @@ export const durationOptions  = [
 
 export const interviewTypeOptions = [
    { value: "Technical", label: "Technical", icon: CodeXmlIcon },
-   { value: "Behavioral", label: "Behavioral", icon: UserRound },
+   { value: "Behavioural", label: "Behavioural", icon: UserRound },
    {value: "Experience", label: "Experience", icon: BriefcaseBusiness },
    {value: "Leadership", label: "Leadership", icon: ComponentIcon },
    {value: "Problem Solving", label: "Problem Solving", icon: PuzzleIcon },
